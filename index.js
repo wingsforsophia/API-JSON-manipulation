@@ -1,6 +1,6 @@
-var express = require("express");
+const express = require("express");
 const recipesCtrl = require("./controllers/recipes");
-var app = express();
+const app = express();
 
 //get request to localhost:3000/recipes to find all the recipe names only
 app.get("/recipes", recipesCtrl.findRecipeNames)

@@ -1,3 +1,4 @@
+const res = require('express/lib/response');
 const data = require ('../data')
 
 function findRecipeNames(req, res){
@@ -33,9 +34,18 @@ function getDetails(req, res){
     res.status(200).json({}) 
 }
 
-function addRecipe(){
+function addRecipe(req, res){
+
+
+    
+
+    //console.log(req.body)
+    // data.recipes.push(req.body)
+    
+    // res.json(data.recipes)
 
 }
+
 
 module.exports = {
     findRecipeNames,
