@@ -35,15 +35,21 @@ function getDetails(req, res){
 }
 
 function addRecipe(req, res){
-
-
-    
-
-    //console.log(req.body)
-    // data.recipes.push(req.body)
-    
-    // res.json(data.recipes)
-
+    //create error response object
+    const errorResponse = {'error': 'Recipe already exists'}
+    //add request body to variable
+    let newRecipe = req.body
+    //test new recipe name against other recipes in data.js 
+    data.recipes.forEach(function(recipe){
+        if (recipe.name === newRecipe.name){
+            //if names match, respond with error    
+            res.status(400).json(errorResponse)
+        }
+    })
+    //if error conditions not met, push new recipe into recipes object
+    data.recipes.push(newRecipe)
+    //respond with status 201
+    res.status(201).json()
 }
 
 

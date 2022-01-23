@@ -2,6 +2,9 @@ const express = require("express");
 const recipesCtrl = require("./controllers/recipes");
 const app = express();
 
+// middleware
+app.use(express.json());
+
 //get request to localhost:3000/recipes to find all the recipe names only
 app.get("/recipes", recipesCtrl.findRecipeNames)
 
