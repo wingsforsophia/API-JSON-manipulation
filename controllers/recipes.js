@@ -33,7 +33,12 @@ function getDetails(req, res){
     res.status(200).json({}) 
 }
 
+function addRecipe(){
+
+}
+
 module.exports = {
     findRecipeNames,
-    getDetails
+    getDetails,
+    addRecipe
 }
