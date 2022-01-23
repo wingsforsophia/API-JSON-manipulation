@@ -11,19 +11,22 @@ function findRecipeNames(req, res){
 function getDetails(req, res){
     let recipeDetails = {
         'details': {
-            'ingredients': []}}
-            
+            'ingredients': [],
+    }}
+
     let name = req.params.recipeName
     
     data.recipes.forEach(function(recipe){
         if (recipe.name === name){
-            recipeDetails.details.ingredients.push(recipe.ingredients)
-        }  
+            recipe.ingredients.forEach(function(ingredient){
+                recipeDetails.details.ingredients.push(ingredient)
+            })
+            recipeDetails.numSteps = recipeDetails.details.ingredients.length
+            res.status(200).json(recipeDetails) 
+        } 
     })
 
-    res.status(200).json(recipeDetails) 
     
-
 }
 
 module.exports = {
